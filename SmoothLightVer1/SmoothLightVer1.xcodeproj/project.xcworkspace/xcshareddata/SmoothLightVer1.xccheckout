@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>43E27322-604A-4B12-B1CF-9E7E9934CE8E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SmoothLightVer1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FC69A068-E3CF-4675-8F3F-C39C37A6A201</key>
+		<string>ssh://github.com/vheun/light.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SmoothLightVer1/SmoothLightVer1.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FC69A068-E3CF-4675-8F3F-C39C37A6A201</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/vheun/light.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FC69A068-E3CF-4675-8F3F-C39C37A6A201</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FC69A068-E3CF-4675-8F3F-C39C37A6A201</string>
+			<key>IDESourceControlWCCName</key>
+			<string>light</string>
+		</dict>
+	</array>
+</dict>
+</plist>

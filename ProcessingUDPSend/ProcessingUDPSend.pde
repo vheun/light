@@ -9,7 +9,9 @@ String ip       = "192.168.1.54";  // the remote IP address
 int port        = 8888;    // the destination port
 
 // Strip Config
-final int PIXEL_COUNT = 54 * 2;
+final int STRIP_COUNT = 4;
+final int STRIP_LENGTH = 54;
+final int PIXEL_COUNT = STRIP_LENGTH * STRIP_COUNT;
 final int COLOR_DEPTH = 3;
 char pixels[] = new char[PIXEL_COUNT * COLOR_DEPTH];
 
@@ -19,26 +21,43 @@ void setup() {
   
   frameRate(60);
   
-  initPixelPattern(0);
-  initPixelPattern(10);
-  initPixelPattern(20);
-  initPixelPattern(30);
+  for (int i = 0; i < 2; ++i) {
+    int loc0 = (i * STRIP_LENGTH);
+    int loc1 = (i * STRIP_LENGTH) + 26;
+    initPixelPattern(loc0);
+    initPixelPattern(loc1);
+  }
 }
 
 void initPixelPattern(int locSeed) {
   int loc;
-  loc = locSeed + 0 * COLOR_DEPTH;
+  loc = (locSeed + 0) * COLOR_DEPTH;
   pixels[loc + 0] = 255; // red
   pixels[loc + 1] = 0; // green
   pixels[loc + 2] = 0; // blue
   
-  loc = 1 * COLOR_DEPTH;
+  loc = (locSeed + 1) * COLOR_DEPTH;
+  pixels[loc + 0] = 255; // red
+  pixels[loc + 1] = 255; // green
+  pixels[loc + 2] = 0; // blue
+  
+  loc = (locSeed + 2) * COLOR_DEPTH;
   pixels[loc + 0] = 0; // red
   pixels[loc + 1] = 255; // green
   pixels[loc + 2] = 0; // blue
   
-  loc = 2 * COLOR_DEPTH;
+  loc = (locSeed + 3) * COLOR_DEPTH;
   pixels[loc + 0] = 0; // red
+  pixels[loc + 1] = 255; // green
+  pixels[loc + 2] = 255; // blue
+  
+  loc = (locSeed + 4) * COLOR_DEPTH;
+  pixels[loc + 0] = 0; // red
+  pixels[loc + 1] = 0; // green
+  pixels[loc + 2] = 255; // blue
+  
+  loc = (locSeed + 5) * COLOR_DEPTH;
+  pixels[loc + 0] = 255; // red
   pixels[loc + 1] = 0; // green
   pixels[loc + 2] = 255; // blue
 }

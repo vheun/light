@@ -5,7 +5,7 @@
 
 // Neopixel Config
 #define PIXEL_PIN (7)
-#define PIXEL_COUNT (54 * 2)
+#define PIXEL_COUNT (54 * 6)
 #define COLOR_DEPTH (3)
 #define PIXEL_BRIGHTNESS (128)
 // Parameter 1 = number of pixels in strip
@@ -17,34 +17,40 @@
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
+
 // Ethernet Config
 EthernetUDP Udp;
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress ip(192, 168, 1, 54);
-unsigned int localPort = 8888;      // local port to listen on
-
 // Buffers for receiving and sending data
 //char packetBuffer[UDP_TX_PACKET_MAX_SIZE]; //buffer to hold incoming packet,
 const int BUFFER_SIZE = PIXEL_COUNT * COLOR_DEPTH;
 char packetBuffer[BUFFER_SIZE]; //buffer to hold incoming packet,
 
 void setup() {
-  // Start the Ethernet and UDP:
-  Ethernet.begin(mac,ip);
-  Udp.begin(localPort);
-
+  initEthernet();
   // Initialize the neo pixel strip.
   strip.begin();
   strip.show();
   strip.setBrightness(PIXEL_BRIGHTNESS);
 
   Serial.begin(115200);
-}  
+}
+
+void initEthernet() {
+
+  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+  IPAddress ip(192, 168, 1, 54);
+  unsigned int localPort = 8888;      // local port to listen on
+  // Start the Ethernet and UDP:
+  Ethernet.begin(mac,ip);
+  Udp.begin(localPort);
+}
 
 void loop() {
   // If there's data available, read a packet
   int packetSize = Udp.parsePacket();
   if(packetSize) {
+    // read the packet into packetBufffer
+    Udp.read(packetBuffer,BUFFER_SIZE);
     
     // Print Packet Info
     Serial.print("Received size ");
@@ -64,13 +70,13 @@ void loop() {
     Serial.println(Udp.remotePort());
     */
     
-    // read the packet into packetBufffer
-    Udp.read(packetBuffer,BUFFER_SIZE);
+  /*
     Serial.println("Contents:");
     for (int i = 0; i < packetSize; ++i) {
       Serial.write(packetBuffer[i]);
     }
     Serial.write(10);
+    */
     
     // Set Strip Colors
     int loc;
@@ -83,7 +89,7 @@ void loop() {
     
     //Serial.println(packetBuffer);
   }
-  delay(10);
+  //delay(10);
 }
 
 
