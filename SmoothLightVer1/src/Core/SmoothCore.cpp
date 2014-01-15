@@ -11,6 +11,7 @@
 #define LIGHT_SCREEN_WIDTH (54)
 #define LIGHT_SCREEN_HEIGHT (4)
 
+
 //SmoothCore::SmoothCore(): screen(ofGetWindowWidth(), ofGetWindowHeight()) {
 SmoothCore::SmoothCore(): screen(LIGHT_SCREEN_WIDTH, LIGHT_SCREEN_HEIGHT) {
     //cout << "is this run" << endl;
@@ -29,7 +30,7 @@ void SmoothCore::initCore() {
     // Init all inputs
     initInputs();
     
-    // Init the light sequencer
+    // Init light sequencer
     initLightSequencer();
     
     // Init the screen
@@ -41,8 +42,8 @@ void SmoothCore::initCore() {
 
 void SmoothCore::updateCore() {
     // Update all inputs
-    for (vector<Input*>::iterator it = inputs.begin() ; it != inputs.end(); ++it) {
-        Input* inp = *it;
+    for (input_it it = inputs.begin() ; it != inputs.end(); ++it) {
+        Input* inp = it->second;
         inp->updateInput();
     }
     
@@ -67,13 +68,15 @@ void SmoothCore::drawCore() {
 
 void SmoothCore::initInputs() {
     // Add one input for now...
-    Input* input = new Input();
+    Input* input = new KeyboardInput("KeyboardInp");
     input->initInput();
-    inputs.push_back(input);
+    //inputs.push_back(input);
+    inputs[input->getId()] = input;
 }
 
 void SmoothCore::initLightSequencer() {
-    lightSequencer.initSequencer();
+    float time = ofGetElapsedTimef();
+    lightSequencer.initSequencer(time, inputs);
 }
 
 void SmoothCore::initScreen() {

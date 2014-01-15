@@ -19,7 +19,7 @@
 
 class LightSequencer {
 public:
-    virtual void initSequencer();
+    virtual void initSequencer(float time, input_map inps);
     /**
      Updates each pattern controlled by this sequence. Removes patterns that
      are finished from the update cycle
@@ -38,6 +38,7 @@ public:
     const vector<LightPattern*> &getLightPatterns();
     
 protected:
+    input_map inputs;
     float startTime;
     vector<LightPattern*> lightPatterns;
 

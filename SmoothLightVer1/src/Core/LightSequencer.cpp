@@ -8,8 +8,9 @@
 
 #include "LightSequencer.h"
 
-void LightSequencer::initSequencer() {
-     startTime = ofGetElapsedTimef();
+void LightSequencer::initSequencer(float time, input_map inps) {
+    startTime = time;
+    inputs = inps;
     
     // Create one test light pattern
     ConstantSquare * square = new ConstantSquare();

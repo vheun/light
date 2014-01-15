@@ -11,13 +11,19 @@
 
 #include <iostream>
 
-#include "ofMain.h"
 
+
+#include "ofMain.h"
+// Core Imports
 #include "Input.h"
 #include "LightSequencer.h"
 #include "Screen.h"
 #include "Renderer.h"
+// Inputs
+#include "KeyboardInput.h"
+// Renderers
 #include "Screen2DRenderer.h"
+
 
 class SmoothCore {
 public:
@@ -36,7 +42,8 @@ private:
     void initRenderer();
     
     // Core Members
-    vector<Input*> inputs;
+    //vector<Input*> inputs;
+    input_map inputs;
     LightSequencer lightSequencer;
     Screen screen;
     Renderer* renderer;

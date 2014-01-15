@@ -15,3 +15,7 @@ void Input::initInput() {
 void Input::updateInput() {
     
 }
+
+const string& Input::getId(){
+    return id;
+}
