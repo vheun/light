@@ -17,7 +17,7 @@
 #include "LightSequencer.h"
 #include "Screen.h"
 #include "Renderer.h"
-#include "2DScreenRenderer.h"
+#include "Screen2DRenderer.h"
 
 class SmoothCore {
 public:

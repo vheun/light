@@ -39,7 +39,7 @@ void Screen::drawLights(vector<LightPattern> lightPatterns){
 }
 
 void Screen::clear() {
-    pixels.set(0);
+    pixels.setColor(ofColor(0,0,0));
 }
 
 int Screen::getWidth() {

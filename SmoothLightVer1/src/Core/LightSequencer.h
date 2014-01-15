@@ -18,21 +18,28 @@
 
 class LightSequencer {
 public:
-    void initSequencer();
-    
-    void updatePatterns();
+    virtual void initSequencer();
+    /**
+     Updates each pattern controlled by this sequence. Removes patterns that
+     are finished from the update cycle
+     */
+    virtual void updatePatterns(float time);
     /**
      Processes all inputs and updates the sequence state.
      */
-    void processState();
-    void sequenceBehavior();
+    virtual void processState(float time);
+    /**
+     Sequences the next step in lighting behavior based on updated state and
+     elapsed time
+     */
+    virtual void sequenceBehavior(float time);
     
+    const vector<LightPattern> &getLightPatterns();
+    
+protected:
+    float startTime;
     vector<LightPattern> lightPatterns;
-private:
-    
-    
 
-    
 };
 
 #endif /* defined(__SmoothLightVer1__LightSequencer__) */

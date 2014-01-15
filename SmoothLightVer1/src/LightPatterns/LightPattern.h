@@ -15,12 +15,16 @@
 
 class LightPattern {
 public:
-    LightPattern(float time);
-    ~LightPattern();
-    
-    void step(float time);
+    virtual void init(float time);
+    virtual void step(float time);
     virtual void draw(ofPixels &pixels);
-private:
+    /**
+     Indicates if this pattern is finished. This method is called regularly on
+     every pattern update cycle to determine which patterns are to be
+     removed form the cycle.
+     */
+    virtual bool isDead();
+protected:
     float startTime;
     
 };

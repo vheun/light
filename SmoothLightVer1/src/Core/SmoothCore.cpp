@@ -14,7 +14,7 @@
 //SmoothCore::SmoothCore(): screen(ofGetWindowWidth(), ofGetWindowHeight()) {
 SmoothCore::SmoothCore(): screen(LIGHT_SCREEN_WIDTH, LIGHT_SCREEN_HEIGHT) {
     cout << "is this run" << endl;
-    renderer = new TwoDimensionalScreenRenderer(ofGetWindowWidth(), ofGetWindowHeight());
+    renderer = new Screen2DRenderer(ofGetWindowWidth(), ofGetWindowHeight());
 }
 
 SmoothCore::~SmoothCore() {
@@ -47,16 +47,17 @@ void SmoothCore::updateCore() {
     }
     
     // Advance LightSequencer
-    lightSequencer.updatePatterns();
-    lightSequencer.processState();
-    lightSequencer.sequenceBehavior();
+    float time = ofGetElapsedTimef();
+    lightSequencer.updatePatterns(time);
+    lightSequencer.processState(time);
+    lightSequencer.sequenceBehavior(time);
 }
 
 void SmoothCore::drawCore() {
     ofBackground(100, 100, 130);
     
     // Draw LightPatterns on screen
-    screen.drawLights(lightSequencer.lightPatterns);
+    screen.drawLights(lightSequencer.getLightPatterns());
     
     // Render the screen
     renderer->renderScreen(screen);

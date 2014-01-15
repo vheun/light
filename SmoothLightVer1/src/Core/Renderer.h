@@ -15,8 +15,8 @@
 
 class Renderer {
 public:
-    virtual void initRenderer();
-    virtual void renderScreen(Screen &screen);
+    virtual void initRenderer() = 0;
+    virtual void renderScreen(Screen &screen) = 0;
 private:
 };
 

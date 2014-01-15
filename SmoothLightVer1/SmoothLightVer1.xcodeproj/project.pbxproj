@@ -38,13 +38,14 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
+		E81B02D01886FB1D0077C3CC /* ConstantSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */; };
+		E81B02D31886FD3E0077C3CC /* Screen2DRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02D11886FD3E0077C3CC /* Screen2DRenderer.cpp */; };
 		E81E259B1880B19000360ACC /* SmoothCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81E25991880B19000360ACC /* SmoothCore.cpp */; };
 		E865A53F1880BF02000F2662 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A53D1880BF02000F2662 /* Input.cpp */; };
 		E865A5421880BF55000F2662 /* LightSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5401880BF55000F2662 /* LightSequencer.cpp */; };
 		E865A5451880BF7B000F2662 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5431880BF7B000F2662 /* Screen.cpp */; };
 		E865A5481880BF92000F2662 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5461880BF92000F2662 /* Renderer.cpp */; };
 		E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A54A1880C01B000F2662 /* LightPattern.cpp */; };
-		E8FF61E21885F8BA004A65F8 /* 2DScreenRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,10 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConstantSquare.cpp; sourceTree = "<group>"; };
+		E81B02CF1886FB1D0077C3CC /* ConstantSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantSquare.h; sourceTree = "<group>"; };
+		E81B02D11886FD3E0077C3CC /* Screen2DRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Screen2DRenderer.cpp; sourceTree = "<group>"; };
+		E81B02D21886FD3E0077C3CC /* Screen2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen2DRenderer.h; sourceTree = "<group>"; };
 		E81E25991880B19000360ACC /* SmoothCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothCore.cpp; sourceTree = "<group>"; };
 		E81E259A1880B19000360ACC /* SmoothCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCore.h; sourceTree = "<group>"; };
 		E865A53D1880BF02000F2662 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
@@ -139,8 +144,6 @@
 		E865A5471880BF92000F2662 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		E865A54A1880C01B000F2662 /* LightPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightPattern.cpp; sourceTree = "<group>"; };
 		E865A54B1880C01B000F2662 /* LightPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPattern.h; sourceTree = "<group>"; };
-		E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = 2DScreenRenderer.cpp; path = ../../../../../../../../Documents/2DScreenRenderer.cpp; sourceTree = "<group>"; };
-		E8FF61E11885F8BA004A65F8 /* 2DScreenRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 2DScreenRenderer.h; path = ../../../../../../../../Documents/2DScreenRenderer.h; sourceTree = "<group>"; };
 		E8FF61E4188609AD004A65F8 /* LightStrip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightStrip.h; sourceTree = "<group>"; };
 		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = SOURCE_ROOT; };
@@ -350,6 +353,8 @@
 			children = (
 				E865A54B1880C01B000F2662 /* LightPattern.h */,
 				E865A54A1880C01B000F2662 /* LightPattern.cpp */,
+				E81B02CF1886FB1D0077C3CC /* ConstantSquare.h */,
+				E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */,
 			);
 			path = LightPatterns;
 			sourceTree = "<group>";
@@ -371,8 +376,8 @@
 		E865A5521880C1D3000F2662 /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
-				E8FF61E11885F8BA004A65F8 /* 2DScreenRenderer.h */,
-				E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */,
+				E81B02D21886FD3E0077C3CC /* Screen2DRenderer.h */,
+				E81B02D11886FD3E0077C3CC /* Screen2DRenderer.cpp */,
 			);
 			path = Renderers;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				5CBB2AB3A60F65431D7B555D /* ofxButton.cpp in Sources */,
 				B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */,
 				483908258D00B98B4BE69F07 /* ofxLabel.cpp in Sources */,
+				E81B02D01886FB1D0077C3CC /* ConstantSquare.cpp in Sources */,
 				F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */,
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
@@ -501,9 +507,9 @@
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
 				E865A5481880BF92000F2662 /* Renderer.cpp in Sources */,
 				125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */,
+				E81B02D31886FD3E0077C3CC /* Screen2DRenderer.cpp in Sources */,
 				E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */,
 				66CA411C5A9664E27326BF36 /* ofxTCPServer.cpp in Sources */,
-				E8FF61E21885F8BA004A65F8 /* 2DScreenRenderer.cpp in Sources */,
 				E2564CF7DDB3713772BB682E /* ofxUDPManager.cpp in Sources */,
 				E81E259B1880B19000360ACC /* SmoothCore.cpp in Sources */,
 				E865A5451880BF7B000F2662 /* Screen.cpp in Sources */,
