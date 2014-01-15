@@ -331,6 +331,13 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
+		E81B02D41887103B0077C3CC /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Primitives;
+			sourceTree = "<group>";
+		};
 		E81E25981880B12200360ACC /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +362,7 @@
 				E865A54A1880C01B000F2662 /* LightPattern.cpp */,
 				E81B02CF1886FB1D0077C3CC /* ConstantSquare.h */,
 				E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */,
+				E81B02D41887103B0077C3CC /* Primitives */,
 			);
 			path = LightPatterns;
 			sourceTree = "<group>";

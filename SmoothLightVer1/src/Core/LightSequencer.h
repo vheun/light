@@ -15,6 +15,7 @@
 #include "ofMain.h"
 #include "Input.h"
 #include "LightPattern.h"
+#include "ConstantSquare.h"
 
 class LightSequencer {
 public:
@@ -34,11 +35,11 @@ public:
      */
     virtual void sequenceBehavior(float time);
     
-    const vector<LightPattern> &getLightPatterns();
+    const vector<LightPattern*> &getLightPatterns();
     
 protected:
     float startTime;
-    vector<LightPattern> lightPatterns;
+    vector<LightPattern*> lightPatterns;
 
 };
 

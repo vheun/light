@@ -25,16 +25,16 @@ void Screen::initScreen() {
     isClear = true;
 }
 
-void Screen::drawLights(vector<LightPattern> lightPatterns){
+void Screen::drawLights(const vector<LightPattern*> &lightPatterns){
     // Clear the screen if set
     if (isClear) {
         clear();
     }
     
-    for (vector<LightPattern>::iterator it = lightPatterns.begin(); it != lightPatterns.end(); ++it) {
-        LightPattern pattern = (LightPattern)*it;
+    for (vector<LightPattern*>::const_iterator it = lightPatterns.begin(); it != lightPatterns.end(); ++it) {
+        LightPattern* pattern = *it;
         // Draw lightPattern to pixels
-        pattern.draw(pixels);
+        pattern->draw(pixels);
     }
 }
 

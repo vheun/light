@@ -15,12 +15,20 @@
 
 class ConstantSquare : public LightPattern {
 public:
+    ConstantSquare();
+    ~ConstantSquare();
+    
     virtual void init(float time);
     virtual void step(float time);
     virtual void draw(ofPixels &pixels);
     virtual bool isDead();
-protected:
     
+    // Square config params
+    ofPoint pos;
+    int size;
+    ofColor color;
+private:
+
 };
 
 #endif /* defined(__SmoothLightVer1__ConstantSquare__) */

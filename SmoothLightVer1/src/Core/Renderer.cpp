@@ -9,7 +9,6 @@
 #include "Renderer.h"
 
 void Renderer::initRenderer() {
-    
 }
 
 void Renderer::renderScreen(Screen &screen) {

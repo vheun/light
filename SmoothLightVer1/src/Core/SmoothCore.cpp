@@ -13,7 +13,7 @@
 
 //SmoothCore::SmoothCore(): screen(ofGetWindowWidth(), ofGetWindowHeight()) {
 SmoothCore::SmoothCore(): screen(LIGHT_SCREEN_WIDTH, LIGHT_SCREEN_HEIGHT) {
-    cout << "is this run" << endl;
+    //cout << "is this run" << endl;
     renderer = new Screen2DRenderer(ofGetWindowWidth(), ofGetWindowHeight());
 }
 

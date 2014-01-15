@@ -27,7 +27,7 @@ public:
     /**
      Render given light patterns to screen with light strips
      */
-    void drawLights(vector<LightPattern> lightPatterns);
+    void drawLights(const vector<LightPattern*> &lightPatterns);
     
     void clear();
     
