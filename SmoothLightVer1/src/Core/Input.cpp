@@ -7,3 +7,11 @@
 //
 
 #include "Input.h"
+
+void Input::initInput() {
+    
+}
+
+void Input::updateInput() {
+    
+}

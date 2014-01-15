@@ -11,4 +11,13 @@
 
 #include <iostream>
 
+#include "Screen.h"
+
+class Renderer {
+public:
+    virtual void initRenderer();
+    virtual void renderScreen(Screen &screen);
+private:
+};
+
 #endif /* defined(__SmoothLightVer1__Renderer__) */

@@ -5,7 +5,7 @@
 
 // Neopixel Config
 #define PIXEL_PIN (7)
-#define PIXEL_COUNT (54 * 6)
+#define PIXEL_COUNT (54 * 4)
 #define COLOR_DEPTH (3)
 #define PIXEL_BRIGHTNESS (128)
 // Parameter 1 = number of pixels in strip

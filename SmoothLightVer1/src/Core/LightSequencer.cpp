@@ -7,3 +7,28 @@
 //
 
 #include "LightSequencer.h"
+
+void LightSequencer::initSequencer() {
+    
+}
+
+void LightSequencer::updatePatterns() {
+    float time = ofGetElapsedTimef();
+}
+
+
+void LightSequencer::processState() {
+    
+}
+
+void LightSequencer::sequenceBehavior() {
+    
+}
+
+
+//--------------------------------------------------------------
+
+
+
+
+//--------------------------------------------------------------

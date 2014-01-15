@@ -11,4 +11,18 @@
 
 #include <iostream>
 
+#include "ofMain.h"
+
+class LightPattern {
+public:
+    LightPattern(float time);
+    ~LightPattern();
+    
+    void step(float time);
+    virtual void draw(ofPixels &pixels);
+private:
+    float startTime;
+    
+};
+
 #endif /* defined(__SmoothLightVer1__LightPattern__) */

@@ -11,4 +11,13 @@
 
 #include <iostream>
 
+class Input {
+public:
+    void initInput();
+    void updateInput();
+private:
+    
+    
+};
+
 #endif /* defined(__SmoothLightVer1__Input__) */

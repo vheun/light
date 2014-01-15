@@ -21,7 +21,7 @@ void setup() {
   
   frameRate(60);
   
-  for (int i = 0; i < 2; ++i) {
+  for (int i = 0; i < STRIP_COUNT; ++i) {
     int loc0 = (i * STRIP_LENGTH);
     int loc1 = (i * STRIP_LENGTH) + 26;
     initPixelPattern(loc0);

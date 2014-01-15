@@ -38,13 +38,13 @@
 		E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */; };
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
-		E81E259B1880B19000360ACC /* Smoothcore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81E25991880B19000360ACC /* Smoothcore.cpp */; };
+		E81E259B1880B19000360ACC /* SmoothCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81E25991880B19000360ACC /* SmoothCore.cpp */; };
 		E865A53F1880BF02000F2662 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A53D1880BF02000F2662 /* Input.cpp */; };
 		E865A5421880BF55000F2662 /* LightSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5401880BF55000F2662 /* LightSequencer.cpp */; };
 		E865A5451880BF7B000F2662 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5431880BF7B000F2662 /* Screen.cpp */; };
 		E865A5481880BF92000F2662 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5461880BF92000F2662 /* Renderer.cpp */; };
 		E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A54A1880C01B000F2662 /* LightPattern.cpp */; };
-		E865A54F1880C02A000F2662 /* LightPatternManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A54D1880C02A000F2662 /* LightPatternManager.cpp */; };
+		E8FF61E21885F8BA004A65F8 /* 2DScreenRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 /* End PBXBuildFile section */
 
@@ -127,8 +127,8 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
-		E81E25991880B19000360ACC /* Smoothcore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Smoothcore.cpp; sourceTree = "<group>"; };
-		E81E259A1880B19000360ACC /* Smoothcore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smoothcore.h; sourceTree = "<group>"; };
+		E81E25991880B19000360ACC /* SmoothCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothCore.cpp; sourceTree = "<group>"; };
+		E81E259A1880B19000360ACC /* SmoothCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCore.h; sourceTree = "<group>"; };
 		E865A53D1880BF02000F2662 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		E865A53E1880BF02000F2662 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		E865A5401880BF55000F2662 /* LightSequencer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightSequencer.cpp; sourceTree = "<group>"; };
@@ -139,8 +139,9 @@
 		E865A5471880BF92000F2662 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		E865A54A1880C01B000F2662 /* LightPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightPattern.cpp; sourceTree = "<group>"; };
 		E865A54B1880C01B000F2662 /* LightPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPattern.h; sourceTree = "<group>"; };
-		E865A54D1880C02A000F2662 /* LightPatternManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightPatternManager.cpp; sourceTree = "<group>"; };
-		E865A54E1880C02A000F2662 /* LightPatternManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPatternManager.h; sourceTree = "<group>"; };
+		E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = 2DScreenRenderer.cpp; path = ../../../../../../../../Documents/2DScreenRenderer.cpp; sourceTree = "<group>"; };
+		E8FF61E11885F8BA004A65F8 /* 2DScreenRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 2DScreenRenderer.h; path = ../../../../../../../../Documents/2DScreenRenderer.h; sourceTree = "<group>"; };
+		E8FF61E4188609AD004A65F8 /* LightStrip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightStrip.h; sourceTree = "<group>"; };
 		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = SOURCE_ROOT; };
 		F66993296A3AEEC70FD444F5 /* ofxNetwork.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNetwork.h; path = ../../../addons/ofxNetwork/src/ofxNetwork.h; sourceTree = SOURCE_ROOT; };
@@ -307,7 +308,13 @@
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E81E25981880B12200360ACC /* Core */,
+				E865A5531880C212000F2662 /* Inputs */,
+				E8FF61E31886098D004A65F8 /* Layouts */,
+				E865A5511880C1D3000F2662 /* LightSequencers */,
 				E865A5491880BFC6000F2662 /* LightPatterns */,
+				E865A5521880C1D3000F2662 /* Renderers */,
+				E865A5501880C1D3000F2662 /* Gui */,
+				E865A5541880C239000F2662 /* Util */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -324,8 +331,8 @@
 		E81E25981880B12200360ACC /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				E81E259A1880B19000360ACC /* Smoothcore.h */,
-				E81E25991880B19000360ACC /* Smoothcore.cpp */,
+				E81E259A1880B19000360ACC /* SmoothCore.h */,
+				E81E25991880B19000360ACC /* SmoothCore.cpp */,
 				E865A53E1880BF02000F2662 /* Input.h */,
 				E865A53D1880BF02000F2662 /* Input.cpp */,
 				E865A5411880BF55000F2662 /* LightSequencer.h */,
@@ -343,10 +350,53 @@
 			children = (
 				E865A54B1880C01B000F2662 /* LightPattern.h */,
 				E865A54A1880C01B000F2662 /* LightPattern.cpp */,
-				E865A54E1880C02A000F2662 /* LightPatternManager.h */,
-				E865A54D1880C02A000F2662 /* LightPatternManager.cpp */,
 			);
 			path = LightPatterns;
+			sourceTree = "<group>";
+		};
+		E865A5501880C1D3000F2662 /* Gui */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Gui;
+			sourceTree = "<group>";
+		};
+		E865A5511880C1D3000F2662 /* LightSequencers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LightSequencers;
+			sourceTree = "<group>";
+		};
+		E865A5521880C1D3000F2662 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				E8FF61E11885F8BA004A65F8 /* 2DScreenRenderer.h */,
+				E8FF61E01885F8BA004A65F8 /* 2DScreenRenderer.cpp */,
+			);
+			path = Renderers;
+			sourceTree = "<group>";
+		};
+		E865A5531880C212000F2662 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		E865A5541880C239000F2662 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E8FF61E31886098D004A65F8 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				E8FF61E4188609AD004A65F8 /* LightStrip.h */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,9 +503,9 @@
 				125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */,
 				E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */,
 				66CA411C5A9664E27326BF36 /* ofxTCPServer.cpp in Sources */,
-				E865A54F1880C02A000F2662 /* LightPatternManager.cpp in Sources */,
+				E8FF61E21885F8BA004A65F8 /* 2DScreenRenderer.cpp in Sources */,
 				E2564CF7DDB3713772BB682E /* ofxUDPManager.cpp in Sources */,
-				E81E259B1880B19000360ACC /* Smoothcore.cpp in Sources */,
+				E81E259B1880B19000360ACC /* SmoothCore.cpp in Sources */,
 				E865A5451880BF7B000F2662 /* Screen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,3 +7,23 @@
 //
 
 #include "LightPattern.h"
+
+LightPattern::LightPattern(float time) {
+    startTime = time;
+}
+
+LightPattern::~LightPattern() {
+    
+}
+
+//--------------------------------------------------------------
+
+void LightPattern::step(float time) {
+    
+}
+
+void LightPattern::draw(ofPixels &pixels) {
+    int width = pixels.getWidth();
+    int height = pixels.getHeight();
+    //TODO(KoolJBlack): implement this.
+}

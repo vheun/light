@@ -7,3 +7,11 @@
 //
 
 #include "Renderer.h"
+
+void Renderer::initRenderer() {
+    
+}
+
+void Renderer::renderScreen(Screen &screen) {
+    cout << "YOU SHOULD NOT SEE THIS" << endl;
+}
