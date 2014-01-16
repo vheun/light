@@ -15,6 +15,7 @@
 #include "ofMain.h"
 #include "LightPattern.h"
 #include "PixelStripString2D.h"
+#include "BoundingBox2D.h"
 
 class Screen {
 public:

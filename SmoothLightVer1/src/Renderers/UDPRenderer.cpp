@@ -48,7 +48,6 @@ void UDPRenderer::renderScreen(Screen &screen) {
                 stripPixelsOutput.push_back(pixelColor.b);
                 stripPixelsOutput.push_back(pixelColor.g);
             }
-            printf("%i, %i\n", int(mid.x), int(mid.y));
         }
         // Send pixels out UDP
         char* output = &stripPixelsOutput[0];

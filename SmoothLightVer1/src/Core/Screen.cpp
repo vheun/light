@@ -7,9 +7,9 @@
 //
 #include "Screen.h"
 
+#define COLOR_DEPTH (3)
 
 Screen::Screen(int windowWidth, int windowHeight): width(windowWidth), height(windowHeight)  {
-    pixels.allocate(width, height, 3);
 }
 
 Screen::~Screen() {
@@ -30,6 +30,14 @@ void Screen::initScreen() {
     pixelStripString.initStripString(pixelStrips, "192.168.1.54", 8888);
     pixelStripStrings.push_back(pixelStripString);
  
+    // Bounding box for all pixel strips
+    BoundingBox2D bBox;
+    bBox.coverPixelStrips(pixelStrips);
+    
+    // Allocate space for internal pixel buffer
+    //pixels.allocate(width, height, COLOR_DEPTH);
+    pixels.allocate(bBox.getWidth(), bBox.getHeight(), COLOR_DEPTH);
+
     // Clear all pixels at start
     clear();
     // Clear the screen on every draw loop
