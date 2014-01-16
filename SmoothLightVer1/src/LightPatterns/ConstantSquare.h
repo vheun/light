@@ -21,7 +21,7 @@ public:
     
     virtual void init(float time);
     virtual void step(float time);
-    virtual void draw(ofPixels &pixels);
+    virtual void draw(ofFbo &fbo);
     virtual bool isDead();
     
     // KeyEvent listener methods

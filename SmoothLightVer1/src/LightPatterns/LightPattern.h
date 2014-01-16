@@ -27,7 +27,7 @@ public:
     /**
      Draws this light pattern to a 2D screen's pixels
      */
-    virtual void draw(ofPixels &pixels) = 0;
+    virtual void draw(ofFbo &fbo) = 0;
     /**
      Indicates if this pattern is finished. This method is called regularly on
      every pattern update cycle to determine which patterns are to be

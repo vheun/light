@@ -19,12 +19,16 @@
 
 class Screen {
 public:
-    Screen(int windowWidth, int windowHeight);
+    Screen();
     ~Screen();
     /**
      Initialize light strips and pixels. 
      */
     void initScreen();
+    /**
+     Set the size and width of the light pixels to draw to
+     */
+    void setSize(int w, int h);
     /**
      Render given light patterns to screen with light strips
      */
@@ -46,6 +50,7 @@ private:
     // Screen representation members
     int width, height;
     pixel_strip_strings_list pixelStripStrings;
+    ofFbo fbo;
     ofPixels pixels;
     
     bool isClear;

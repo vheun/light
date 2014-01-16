@@ -9,7 +9,7 @@
 
 #define COLOR_DEPTH (3)
 
-Screen::Screen(int windowWidth, int windowHeight): width(windowWidth), height(windowHeight)  {
+Screen::Screen() {
 }
 
 Screen::~Screen() {
@@ -33,17 +33,22 @@ void Screen::initScreen() {
     // Bounding box for all pixel strips
     BoundingBox2D bBox;
     bBox.coverPixelStrips(pixelStrips);
-    
-    // Allocate space for internal pixel buffer
-    //pixels.allocate(width, height, COLOR_DEPTH);
-    pixels.allocate(bBox.getWidth(), bBox.getHeight(), COLOR_DEPTH);
+    setSize((bBox.getWidth()), bBox.getHeight());
 
-    // Clear all pixels at start
-    clear();
     // Clear the screen on every draw loop
     isClear = true;
+}
+
+void Screen::setSize(int w, int h) {
+    width = w;
+    height = h;
     
+    // Allocate the frame buffer object and clear pixels
+    fbo.allocate(w, h, GL_RGBA);
+    clear();
     
+    // Allocate space for internal pixel buffer
+    pixels.allocate(w, h, OF_PIXELS_RGB);
 }
 
 void Screen::drawLights(const vector<LightPattern*> &lightPatterns){
@@ -52,15 +57,27 @@ void Screen::drawLights(const vector<LightPattern*> &lightPatterns){
         clear();
     }
     
+    // Start the fbo. All draw calls will be drawn to this
+    fbo.begin();
+    
     for (vector<LightPattern*>::const_iterator it = lightPatterns.begin(); it != lightPatterns.end(); ++it) {
         LightPattern* pattern = *it;
         // Draw lightPattern to pixels
-        pattern->draw(pixels);
+        pattern->draw(fbo);
     }
+    
+    // End the fbo
+    fbo.end();
+    
+    // Copy to pixels
+    fbo.readToPixels(pixels);
 }
 
 void Screen::clear() {
-    pixels.setColor(ofColor(0,0,0));
+    //pixels.setColor(ofColor(0,0,0));
+    fbo.begin();
+    ofClear(0,0,0, 255);
+    fbo.end();
 }
 
 //--------------------------------------------------------------

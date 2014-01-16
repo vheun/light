@@ -31,16 +31,12 @@ void ConstantSquare::step(float time) {
     
 }
 
-void ConstantSquare::draw(ofPixels &pixels) {
-    int width = pixels.getWidth();
-    int height = pixels.getHeight();
+void ConstantSquare::draw(ofFbo &fbo) {
+    int width = fbo.getWidth();
+    int height = fbo.getHeight();
     
-    // Use a samller square set of colored pixels to render the square.
-    // TODO (KoolJBlack): make this more efficient
-    ofPixels square;
-    square.allocate(size, size, 3);
-    square.setColor(color);
-    square.pasteInto(pixels, pos.x, pos.y);
+    ofSetColor(color);
+    ofRect(pos, size, size);
 }
 
 bool ConstantSquare::isDead() {

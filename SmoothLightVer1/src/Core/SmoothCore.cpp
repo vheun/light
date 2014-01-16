@@ -13,7 +13,7 @@
 
 
 //SmoothCore::SmoothCore(): screen(ofGetWindowWidth(), ofGetWindowHeight()) {
-SmoothCore::SmoothCore(): screen(LIGHT_SCREEN_WIDTH, LIGHT_SCREEN_HEIGHT) {
+SmoothCore::SmoothCore() {
     //cout << "is this run" << endl;
     screenRenderer = new Screen2DRenderer(ofGetWindowWidth(), ofGetWindowHeight());
     udpRenderer = new UDPRenderer();

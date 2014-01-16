@@ -20,9 +20,9 @@ void LightPattern::step(float time) {
     
 }
 
-void LightPattern::draw(ofPixels &pixels) {
-    int width = pixels.getWidth();
-    int height = pixels.getHeight();
+void LightPattern::draw(ofFbo &fbo) {
+    int width = fbo.getWidth();
+    int height = fbo.getHeight();
 }
 
 bool LightPattern::isDead() {
