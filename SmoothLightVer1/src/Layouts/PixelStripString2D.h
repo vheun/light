@@ -34,6 +34,7 @@ public:
     const int &getPort() {
         return port;
     }
+    
 private:
     pixel_strip_list pixelStrips;
     string ip;
