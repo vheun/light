@@ -14,7 +14,7 @@
 
 #include "ofMain.h"
 #include "LightPattern.h"
-#include "LightStrip.h"
+#include "PixelStripString2D.h"
 
 class Screen {
 public:
@@ -28,19 +28,23 @@ public:
      Render given light patterns to screen with light strips
      */
     void drawLights(const vector<LightPattern*> &lightPatterns);
-    
+    /**
+     Clears all of the pixels in this screen to a default color;
+     */
     void clear();
     
+    // Member accessors
     int getWidth();
     int getHeight();
     const ofPixels& getPixels();
-    
     void setClearScreen(bool c);
+    
+    const pixel_strip_strings_list& getPixelStripStrings();
     
 private:
     // Screen representation members
     int width, height;
-    vector<LightStrip> lightStrips;
+    pixel_strip_strings_list pixelStripStrings;
     ofPixels pixels;
     
     bool isClear;

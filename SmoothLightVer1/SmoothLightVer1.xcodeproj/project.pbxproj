@@ -41,6 +41,7 @@
 		E81B02D01886FB1D0077C3CC /* ConstantSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */; };
 		E81B02D31886FD3E0077C3CC /* Screen2DRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02D11886FD3E0077C3CC /* Screen2DRenderer.cpp */; };
 		E81B02D7188716700077C3CC /* KeyboardInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02D5188716700077C3CC /* KeyboardInput.cpp */; };
+		E81B02DE18876CB70077C3CC /* UDPRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81B02DC18876CB70077C3CC /* UDPRenderer.cpp */; };
 		E81E259B1880B19000360ACC /* SmoothCore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E81E25991880B19000360ACC /* SmoothCore.cpp */; };
 		E865A53F1880BF02000F2662 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A53D1880BF02000F2662 /* Input.cpp */; };
 		E865A5421880BF55000F2662 /* LightSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5401880BF55000F2662 /* LightSequencer.cpp */; };
@@ -137,6 +138,8 @@
 		E81B02D6188716700077C3CC /* KeyboardInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInput.h; sourceTree = "<group>"; };
 		E81B02D9188762440077C3CC /* PixelStrip2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelStrip2D.h; sourceTree = "<group>"; };
 		E81B02DB188762C10077C3CC /* PixelStripString2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelStripString2D.h; sourceTree = "<group>"; };
+		E81B02DC18876CB70077C3CC /* UDPRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UDPRenderer.cpp; sourceTree = "<group>"; };
+		E81B02DD18876CB70077C3CC /* UDPRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPRenderer.h; sourceTree = "<group>"; };
 		E81E25991880B19000360ACC /* SmoothCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothCore.cpp; sourceTree = "<group>"; };
 		E81E259A1880B19000360ACC /* SmoothCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCore.h; sourceTree = "<group>"; };
 		E865A53D1880BF02000F2662 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 			children = (
 				E81B02D21886FD3E0077C3CC /* Screen2DRenderer.h */,
 				E81B02D11886FD3E0077C3CC /* Screen2DRenderer.cpp */,
+				E81B02DD18876CB70077C3CC /* UDPRenderer.h */,
+				E81B02DC18876CB70077C3CC /* UDPRenderer.cpp */,
 			);
 			path = Renderers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				E865A53F1880BF02000F2662 /* Input.cpp in Sources */,
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
 				E865A5481880BF92000F2662 /* Renderer.cpp in Sources */,
+				E81B02DE18876CB70077C3CC /* UDPRenderer.cpp in Sources */,
 				125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */,
 				E81B02D31886FD3E0077C3CC /* Screen2DRenderer.cpp in Sources */,
 				E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */,
