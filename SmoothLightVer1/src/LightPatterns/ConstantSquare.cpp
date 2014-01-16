@@ -24,7 +24,11 @@ void ConstantSquare::init(float time) {
 
 
 void ConstantSquare::step(float time) {
-    // Do nothing for a constant suare
+    // Randomize color if there is a keyBoardInput event
+    if (keyEventProvider->hasKeyEvent()) {
+        color = ofColor(ofRandom(0,255), ofRandom(0,255), ofRandom(0,255));
+    }
+    
 }
 
 void ConstantSquare::draw(ofPixels &pixels) {
@@ -42,3 +46,9 @@ void ConstantSquare::draw(ofPixels &pixels) {
 bool ConstantSquare::isDead() {
     return false;
 }
+
+//--------------------------------------------------------------
+void ConstantSquare::RegisterKeyEventProvider(KeyEventProvider &provider) {
+    keyEventProvider = &provider;
+}
+

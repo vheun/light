@@ -73,7 +73,7 @@ void SmoothCore::drawCore() {
 
 void SmoothCore::initInputs() {
     // Add one input for now...
-    Input* input = new KeyboardInput("KeyboardInp");
+    Input* input = new KeyboardInput("KeyboardInput");
     input->initInput();
     //inputs.push_back(input);
     inputs[input->getId()] = input;

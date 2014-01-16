@@ -45,8 +45,8 @@ void UDPRenderer::renderScreen(Screen &screen) {
                 // Find pixel color from pixels list, then add each color to strip pixel array
                 ofColor pixelColor = pixels.getColor(int(mid.x), int(mid.y));
                 stripPixelsOutput.push_back(pixelColor.r);
-                stripPixelsOutput.push_back(pixelColor.b);
                 stripPixelsOutput.push_back(pixelColor.g);
+                stripPixelsOutput.push_back(pixelColor.b);
             }
         }
         // Send pixels out UDP

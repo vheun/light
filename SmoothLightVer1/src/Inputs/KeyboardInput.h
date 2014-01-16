@@ -14,9 +14,25 @@
 #include "ofMain.h"
 #include "Input.h"
 
-typedef bool KeyboardInputKeyEvent;
+//--------------------------------------------------------------
 
-class KeyboardInput : public Input {
+typedef ofKeyEventArgs KeyEvent;
+typedef bool KeyEventIndicator;
+
+class KeyEventProvider {
+public:
+    virtual const KeyEvent& getKeyEvent() = 0;
+    virtual const KeyEventIndicator& hasKeyEvent() = 0;
+};
+
+class KeyEventListener {
+public:
+    virtual void RegisterKeyEventProvider(KeyEventProvider &provider) = 0;
+};
+
+//--------------------------------------------------------------
+
+class KeyboardInput : public Input, public KeyEventProvider {
 public:
     KeyboardInput(string newId);
     
@@ -28,10 +44,12 @@ public:
     void keyPressed(ofKeyEventArgs &args);
     void keyReleased(ofKeyEventArgs &args);
     
-    // Input data providers
-    KeyboardInputKeyEvent getKeyEvent();
+    // KeyEvent Functions
+    virtual const KeyEvent &getKeyEvent();
+    virtual const KeyEventIndicator &hasKeyEvent();
 private:
-    bool isKeyEvent;
+    ofKeyEventArgs keyEventArgs;
+    KeyEventIndicator newKeyEvent;
     
 };
 #endif /* defined(__SmoothLightVer1__KeyboardInput__) */

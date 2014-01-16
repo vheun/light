@@ -15,7 +15,7 @@ KeyboardInput::KeyboardInput(string newId) {
 
 void KeyboardInput::initInput() {
     // Clear events
-    isKeyEvent = false;
+    newKeyEvent = false;
     
     // Register for keyboard events
     ofRegisterKeyEvents(this);
@@ -26,13 +26,14 @@ void KeyboardInput::updateInput() {
 }
 
 void KeyboardInput::clearEventQueue() {
-    isKeyEvent = false;
+    newKeyEvent = false;
 }
 
 //--------------------------------------------------------------
 void KeyboardInput::keyPressed(ofKeyEventArgs &args){
     int key = args.key;
-    isKeyEvent = true;
+    keyEventArgs = args;
+    newKeyEvent = true;
 }
 
 void KeyboardInput::keyReleased(ofKeyEventArgs &args){
@@ -42,6 +43,10 @@ void KeyboardInput::keyReleased(ofKeyEventArgs &args){
 
 //--------------------------------------------------------------
 
-bool KeyboardInput::getKeyEvent() {
-    return isKeyEvent;
+const KeyEvent& KeyboardInput::getKeyEvent() {
+    return keyEventArgs;
+}
+
+const KeyEventIndicator& KeyboardInput::hasKeyEvent() {
+    return newKeyEvent;
 }

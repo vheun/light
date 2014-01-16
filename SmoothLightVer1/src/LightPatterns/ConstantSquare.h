@@ -14,7 +14,7 @@
 #include "LightPattern.h"
 #include "KeyboardInput.h"
 
-class ConstantSquare : public LightPattern {
+class ConstantSquare : public LightPattern, public KeyEventListener {
 public:
     ConstantSquare();
     ~ConstantSquare();
@@ -24,12 +24,15 @@ public:
     virtual void draw(ofPixels &pixels);
     virtual bool isDead();
     
+    // KeyEvent listener methods
+    virtual void RegisterKeyEventProvider(KeyEventProvider &provider);
+    
     // Square config params
     ofPoint pos;
     int size;
     ofColor color;
 private:
-
+    KeyEventProvider *keyEventProvider;
 };
 
 #endif /* defined(__SmoothLightVer1__ConstantSquare__) */

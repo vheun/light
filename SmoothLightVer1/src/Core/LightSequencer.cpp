@@ -8,7 +8,7 @@
 
 #include "LightSequencer.h"
 
-void LightSequencer::initSequencer(float time, input_map inps) {
+void LightSequencer::initSequencer(float time, input_map &inps) {
     startTime = time;
     inputs = inps;
     
@@ -17,6 +17,8 @@ void LightSequencer::initSequencer(float time, input_map inps) {
     square->pos = ofPoint(0,0);
     square->size = 4;
     square->color = ofColor(255,0,0);
+    KeyboardInput *keyboardInput = (KeyboardInput*) inputs["KeyboardInput"];
+    square->RegisterKeyEventProvider(*keyboardInput);
     lightPatterns.push_back(square);
 }
 
