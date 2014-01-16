@@ -15,8 +15,18 @@
 
 class LightPattern {
 public:
+    /**
+     Initializes light pattern state.
+     */
     virtual void init(float time) = 0;
+    /**
+     Advances the light pattern by a time step. Light pattern internal state
+     is updated here.
+     */
     virtual void step(float time) = 0;
+    /**
+     Draws this light pattern to a 2D screen's pixels
+     */
     virtual void draw(ofPixels &pixels) = 0;
     /**
      Indicates if this pattern is finished. This method is called regularly on

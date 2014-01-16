@@ -41,7 +41,10 @@ private:
     void initScreen();
     void initRenderer();
     
-    // Core Members
+    // State update
+    void inputEventsClear();
+    
+    // Core members
     //vector<Input*> inputs;
     input_map inputs;
     LightSequencer lightSequencer;

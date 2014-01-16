@@ -135,6 +135,8 @@
 		E81B02D21886FD3E0077C3CC /* Screen2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen2DRenderer.h; sourceTree = "<group>"; };
 		E81B02D5188716700077C3CC /* KeyboardInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardInput.cpp; sourceTree = "<group>"; };
 		E81B02D6188716700077C3CC /* KeyboardInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInput.h; sourceTree = "<group>"; };
+		E81B02D9188762440077C3CC /* PixelStrip2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelStrip2D.h; sourceTree = "<group>"; };
+		E81B02DB188762C10077C3CC /* PixelStripString2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelStripString2D.h; sourceTree = "<group>"; };
 		E81E25991880B19000360ACC /* SmoothCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothCore.cpp; sourceTree = "<group>"; };
 		E81E259A1880B19000360ACC /* SmoothCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCore.h; sourceTree = "<group>"; };
 		E865A53D1880BF02000F2662 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
@@ -147,7 +149,6 @@
 		E865A5471880BF92000F2662 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		E865A54A1880C01B000F2662 /* LightPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightPattern.cpp; sourceTree = "<group>"; };
 		E865A54B1880C01B000F2662 /* LightPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPattern.h; sourceTree = "<group>"; };
-		E8FF61E4188609AD004A65F8 /* LightStrip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightStrip.h; sourceTree = "<group>"; };
 		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = SOURCE_ROOT; };
 		F66993296A3AEEC70FD444F5 /* ofxNetwork.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNetwork.h; path = ../../../addons/ofxNetwork/src/ofxNetwork.h; sourceTree = SOURCE_ROOT; };
@@ -412,7 +413,8 @@
 		E8FF61E31886098D004A65F8 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				E8FF61E4188609AD004A65F8 /* LightStrip.h */,
+				E81B02D9188762440077C3CC /* PixelStrip2D.h */,
+				E81B02DB188762C10077C3CC /* PixelStripString2D.h */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";

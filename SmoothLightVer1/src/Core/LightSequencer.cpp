@@ -31,7 +31,6 @@ void LightSequencer::updatePatterns(float time) {
     }
 }
 
-
 void LightSequencer::processState(float time) {
     // No state to process
 }
@@ -45,9 +44,6 @@ void LightSequencer::sequenceBehavior(float time) {
 const vector<LightPattern*> & LightSequencer::getLightPatterns() {
     return lightPatterns;
 }
-
-
-
 
 
 

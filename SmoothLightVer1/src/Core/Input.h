@@ -20,6 +20,10 @@ public:
     virtual void initInput() = 0;
     virtual void updateInput() = 0;
     /**
+     Clears any input events queued
+     */
+    virtual void clearEventQueue();
+    /**
      Returns string used to uniquely identify each instance of an Input object.
      */
     const string &getId();

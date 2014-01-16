@@ -12,6 +12,7 @@
 #include <iostream>
 
 #include "LightPattern.h"
+#include "KeyboardInput.h"
 
 class ConstantSquare : public LightPattern {
 public:

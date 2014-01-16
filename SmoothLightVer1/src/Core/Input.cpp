@@ -16,6 +16,10 @@ void Input::updateInput() {
     
 }
 
+void Input::clearEventQueue() {
+    // Overwrite this to implement functionality
+}
+
 const string& Input::getId(){
     return id;
 }

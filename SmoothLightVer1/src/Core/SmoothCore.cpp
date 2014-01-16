@@ -52,6 +52,9 @@ void SmoothCore::updateCore() {
     lightSequencer.updatePatterns(time);
     lightSequencer.processState(time);
     lightSequencer.sequenceBehavior(time);
+    
+    // Clear all input events
+    inputEventsClear();
 }
 
 void SmoothCore::drawCore() {
@@ -86,4 +89,16 @@ void SmoothCore::initScreen() {
 void SmoothCore::initRenderer() {
     renderer->initRenderer();
 }
+
+//--------------------------------------------------------------
+void SmoothCore::inputEventsClear() {
+    // Update all inputs
+    for (input_it it = inputs.begin() ; it != inputs.end(); ++it) {
+        Input* inp = it->second;
+        inp->clearEventQueue();
+    }
+}
+
+
+
 

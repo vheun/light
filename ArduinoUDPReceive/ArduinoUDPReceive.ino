@@ -70,13 +70,13 @@ void loop() {
     Serial.println(Udp.remotePort());
     */
     
-  /*
+  
     Serial.println("Contents:");
     for (int i = 0; i < packetSize; ++i) {
       Serial.write(packetBuffer[i]);
     }
     Serial.write(10);
-    */
+    
     
     // Set Strip Colors
     int loc;
