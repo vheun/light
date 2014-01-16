@@ -18,16 +18,13 @@
 
 class UDPRenderer: public Renderer {
 public:
-    UDPRenderer();
-    ~UDPRenderer();
+    //UDPRenderer();
+    //~UDPRenderer();
     
     virtual void initRenderer();
     virtual void renderScreen(Screen &screen);
 private:
-    
     ofxUDPManager udpConnection;
- 
 };
-
 
 #endif /* defined(__SmoothLightVer1__UDPRenderer__) */

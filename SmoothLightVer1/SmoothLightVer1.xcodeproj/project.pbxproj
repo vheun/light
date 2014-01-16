@@ -140,6 +140,7 @@
 		E81B02DB188762C10077C3CC /* PixelStripString2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PixelStripString2D.h; sourceTree = "<group>"; };
 		E81B02DC18876CB70077C3CC /* UDPRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UDPRenderer.cpp; sourceTree = "<group>"; };
 		E81B02DD18876CB70077C3CC /* UDPRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPRenderer.h; sourceTree = "<group>"; };
+		E81B02DF188845270077C3CC /* BoundingBox2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoundingBox2D.h; sourceTree = "<group>"; };
 		E81E25991880B19000360ACC /* SmoothCore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmoothCore.cpp; sourceTree = "<group>"; };
 		E81E259A1880B19000360ACC /* SmoothCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCore.h; sourceTree = "<group>"; };
 		E865A53D1880BF02000F2662 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
@@ -420,6 +421,7 @@
 			children = (
 				E81B02D9188762440077C3CC /* PixelStrip2D.h */,
 				E81B02DB188762C10077C3CC /* PixelStripString2D.h */,
+				E81B02DF188845270077C3CC /* BoundingBox2D.h */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";

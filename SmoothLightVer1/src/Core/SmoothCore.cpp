@@ -15,7 +15,8 @@
 //SmoothCore::SmoothCore(): screen(ofGetWindowWidth(), ofGetWindowHeight()) {
 SmoothCore::SmoothCore(): screen(LIGHT_SCREEN_WIDTH, LIGHT_SCREEN_HEIGHT) {
     //cout << "is this run" << endl;
-    renderer = new Screen2DRenderer(ofGetWindowWidth(), ofGetWindowHeight());
+    screenRenderer = new Screen2DRenderer(ofGetWindowWidth(), ofGetWindowHeight());
+    udpRenderer = new UDPRenderer();
 }
 
 SmoothCore::~SmoothCore() {
@@ -64,7 +65,8 @@ void SmoothCore::drawCore() {
     screen.drawLights(lightSequencer.getLightPatterns());
     
     // Render the screen
-    renderer->renderScreen(screen);
+    screenRenderer->renderScreen(screen);
+    udpRenderer->renderScreen(screen);
 }
 
 //--------------------------------------------------------------
@@ -87,7 +89,8 @@ void SmoothCore::initScreen() {
 }
 
 void SmoothCore::initRenderer() {
-    renderer->initRenderer();
+    screenRenderer->initRenderer();
+    udpRenderer->initRenderer();
 }
 
 //--------------------------------------------------------------

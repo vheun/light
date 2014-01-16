@@ -23,6 +23,7 @@
 #include "KeyboardInput.h"
 // Renderers
 #include "Screen2DRenderer.h"
+#include "UDPRenderer.h"
 
 
 class SmoothCore {
@@ -49,7 +50,9 @@ private:
     input_map inputs;
     LightSequencer lightSequencer;
     Screen screen;
-    Renderer* renderer;
+    Screen2DRenderer* screenRenderer;
+    UDPRenderer * udpRenderer;
+    
 };
 
 #endif /* defined(__SmoothLightVer1__SmoothCore__) */
