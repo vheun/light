@@ -24,15 +24,11 @@ public:
     virtual void draw(ofFbo &fbo);
     virtual bool isDead();
     
-    // KeyEvent listener methods
-    virtual void registerKeyEventProvider(KeyEventProvider &provider);
-    
     // Square config params
     ofPoint pos;
     int size;
     ofColor color;
-private:
-    KeyEventProvider *keyEventProvider;
+
 };
 
 #endif /* defined(__SmoothLightVer1__ConstantSquare__) */

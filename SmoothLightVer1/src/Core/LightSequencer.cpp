@@ -88,7 +88,3 @@ const vector<LightPattern*> & LightSequencer::getLightPatterns() {
     return lightPatterns;
 }
 
-//--------------------------------------------------------------
-void LightSequencer::registerKeyEventProvider(KeyEventProvider &provider) {
-    keyEventProvider = &provider;
-}

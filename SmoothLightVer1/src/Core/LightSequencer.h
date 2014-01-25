@@ -44,17 +44,11 @@ public:
     
     const vector<LightPattern*> &getLightPatterns();
     
-    // KeyEvent listener methods
-    virtual void registerKeyEventProvider(KeyEventProvider &provider);
-    
 protected:
     int screenWidth, screenHeight;
     input_map inputs;
     float startTime;
     vector<LightPattern*> lightPatterns;
-
-private:
-    KeyEventProvider *keyEventProvider;
 };
 
 #endif /* defined(__SmoothLightVer1__LightSequencer__) */
