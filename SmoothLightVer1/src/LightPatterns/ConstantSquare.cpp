@@ -44,7 +44,7 @@ bool ConstantSquare::isDead() {
 }
 
 //--------------------------------------------------------------
-void ConstantSquare::RegisterKeyEventProvider(KeyEventProvider &provider) {
+void ConstantSquare::registerKeyEventProvider(KeyEventProvider &provider) {
     keyEventProvider = &provider;
 }
 

@@ -25,7 +25,7 @@ public:
     virtual bool isDead();
     
     // KeyEvent listener methods
-    virtual void RegisterKeyEventProvider(KeyEventProvider &provider);
+    virtual void registerKeyEventProvider(KeyEventProvider &provider);
     
     // Square config params
     ofPoint pos;

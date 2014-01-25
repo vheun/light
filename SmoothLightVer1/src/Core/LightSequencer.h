@@ -14,12 +14,19 @@
 
 #include "ofMain.h"
 #include "Input.h"
+
+// LightPattern Includes
 #include "LightPattern.h"
 #include "ConstantSquare.h"
+#include "SinMoveShape.h"
+#include "BeatWave.h"
 
-class LightSequencer {
+class LightSequencer : private KeyEventListener {
 public:
-    virtual void initSequencer(float time, input_map &inps);
+    LightSequencer();
+    ~LightSequencer();
+    
+    virtual void initSequencer(float time, input_map &inps, int width, int height);
     /**
      Updates each pattern controlled by this sequence. Removes patterns that
      are finished from the update cycle
@@ -37,11 +44,17 @@ public:
     
     const vector<LightPattern*> &getLightPatterns();
     
+    // KeyEvent listener methods
+    virtual void registerKeyEventProvider(KeyEventProvider &provider);
+    
 protected:
+    int screenWidth, screenHeight;
     input_map inputs;
     float startTime;
     vector<LightPattern*> lightPatterns;
 
+private:
+    KeyEventProvider *keyEventProvider;
 };
 
 #endif /* defined(__SmoothLightVer1__LightSequencer__) */

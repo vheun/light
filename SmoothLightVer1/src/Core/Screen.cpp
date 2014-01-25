@@ -19,20 +19,11 @@ Screen::~Screen() {
 //--------------------------------------------------------------
 
 void Screen::initScreen() {
-    // Create the pixel strip strings and pixel strips
-    //TODO(KoolJBlack): Place this functionality elsewhere.
-    pixel_strip_list pixelStrips;
-    pixelStrips.push_back(PixelStrip2D(ofPoint(53,0), ofPoint(0,0), 54));
-    pixelStrips.push_back(PixelStrip2D(ofPoint(0,1), ofPoint(53,1), 54));
-    pixelStrips.push_back(PixelStrip2D(ofPoint(53,2), ofPoint(0,2), 54));
-    pixelStrips.push_back(PixelStrip2D(ofPoint(0,3), ofPoint(53,3), 54));
-    PixelStripString2D pixelStripString;
-    pixelStripString.initStripString(pixelStrips, "192.168.1.54", 8888);
-    pixelStripStrings.push_back(pixelStripString);
- 
-    // Bounding box for all pixel strips
-    BoundingBox2D bBox;
-    bBox.coverPixelStrips(pixelStrips);
+    // Layout bulider sets pixel and screen dimensions
+    OneStringTestLayout layoutBuilder;
+    layoutBuilder.buildLayout();
+    pixelStripStrings = layoutBuilder.getLayoutStripStrings();
+    BoundingBox2D bBox = layoutBuilder.getLayoutBoundingBox();
     setSize((bBox.getWidth()), bBox.getHeight());
 
     // Clear the screen on every draw loop
@@ -74,7 +65,6 @@ void Screen::drawLights(const vector<LightPattern*> &lightPatterns){
 }
 
 void Screen::clear() {
-    //pixels.setColor(ofColor(0,0,0));
     fbo.begin();
     ofClear(0,0,0, 255);
     fbo.end();

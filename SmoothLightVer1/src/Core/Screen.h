@@ -17,6 +17,9 @@
 #include "PixelStripString2D.h"
 #include "BoundingBox2D.h"
 
+// Laytout Includes
+#include "OneStringTestLayout.h"
+
 class Screen {
 public:
     Screen();

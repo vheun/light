@@ -65,6 +65,20 @@ public:
     int getHeight() {
         return maxY - minY + 1;
     }
+    
+    void setWidthFromOrigin(int width) {
+        minX = 0;
+        maxX = width;
+    }
+    
+    void setHeightFromOrigin(int height) {
+        minY = 0;
+        maxY = height;
+    }
+    
+    bool isPointInside(ofPoint p) {
+        return p.x >= minX && p.x <= maxX && p.y >= minY && p.y <= maxY;
+    }
 
 private:
     int  minX, minY, maxX, maxY;

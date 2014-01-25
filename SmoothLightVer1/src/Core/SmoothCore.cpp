@@ -31,11 +31,11 @@ void SmoothCore::initCore() {
     // Init all inputs
     initInputs();
     
-    // Init light sequencer
-    initLightSequencer();
-    
     // Init the screen
     initScreen();
+    
+    // Init light sequencer
+    initLightSequencer();
     
     // Init the renderer
     initRenderer();
@@ -81,7 +81,7 @@ void SmoothCore::initInputs() {
 
 void SmoothCore::initLightSequencer() {
     float time = ofGetElapsedTimef();
-    lightSequencer.initSequencer(time, inputs);
+    lightSequencer.initSequencer(time, inputs, screen.getWidth(), screen.getHeight());
 }
 
 void SmoothCore::initScreen() {

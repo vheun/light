@@ -48,6 +48,8 @@
 		E865A5451880BF7B000F2662 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5431880BF7B000F2662 /* Screen.cpp */; };
 		E865A5481880BF92000F2662 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A5461880BF92000F2662 /* Renderer.cpp */; };
 		E865A54C1880C01B000F2662 /* LightPattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E865A54A1880C01B000F2662 /* LightPattern.cpp */; };
+		E871B5751893253A0069A262 /* SinMoveShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E871B5731893253A0069A262 /* SinMoveShape.cpp */; };
+		E871B57818932DF40069A262 /* BeatWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E871B57618932DF40069A262 /* BeatWave.cpp */; };
 		F285EB3169F1566CA3D93C20 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E112B3AEBEA2C091BF2B40AE /* ofxPanel.cpp */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +155,12 @@
 		E865A5471880BF92000F2662 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		E865A54A1880C01B000F2662 /* LightPattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightPattern.cpp; sourceTree = "<group>"; };
 		E865A54B1880C01B000F2662 /* LightPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightPattern.h; sourceTree = "<group>"; };
+		E871B56B1892DC660069A262 /* LayoutBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayoutBuilder.h; sourceTree = "<group>"; };
+		E871B56D1893078C0069A262 /* OneStringTestLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneStringTestLayout.h; sourceTree = "<group>"; };
+		E871B5731893253A0069A262 /* SinMoveShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SinMoveShape.cpp; sourceTree = "<group>"; };
+		E871B5741893253A0069A262 /* SinMoveShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinMoveShape.h; sourceTree = "<group>"; };
+		E871B57618932DF40069A262 /* BeatWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeatWave.cpp; sourceTree = "<group>"; };
+		E871B57718932DF40069A262 /* BeatWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeatWave.h; sourceTree = "<group>"; };
 		ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../../addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		F399B91E98DC31CDA6DDACB4 /* ofxTCPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxTCPManager.cpp; path = ../../../addons/ofxNetwork/src/ofxTCPManager.cpp; sourceTree = SOURCE_ROOT; };
 		F66993296A3AEEC70FD444F5 /* ofxNetwork.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxNetwork.h; path = ../../../addons/ofxNetwork/src/ofxNetwork.h; sourceTree = SOURCE_ROOT; };
@@ -370,6 +378,10 @@
 				E865A54A1880C01B000F2662 /* LightPattern.cpp */,
 				E81B02CF1886FB1D0077C3CC /* ConstantSquare.h */,
 				E81B02CE1886FB1D0077C3CC /* ConstantSquare.cpp */,
+				E871B5741893253A0069A262 /* SinMoveShape.h */,
+				E871B5731893253A0069A262 /* SinMoveShape.cpp */,
+				E871B57718932DF40069A262 /* BeatWave.h */,
+				E871B57618932DF40069A262 /* BeatWave.cpp */,
 				E81B02D41887103B0077C3CC /* Primitives */,
 			);
 			path = LightPatterns;
@@ -416,12 +428,22 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		E871B56A1892DC570069A262 /* LayoutBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				E871B56B1892DC660069A262 /* LayoutBuilder.h */,
+				E871B56D1893078C0069A262 /* OneStringTestLayout.h */,
+			);
+			path = LayoutBuilders;
+			sourceTree = "<group>";
+		};
 		E8FF61E31886098D004A65F8 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
 				E81B02D9188762440077C3CC /* PixelStrip2D.h */,
 				E81B02DB188762C10077C3CC /* PixelStripString2D.h */,
 				E81B02DF188845270077C3CC /* BoundingBox2D.h */,
+				E871B56A1892DC570069A262 /* LayoutBuilders */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -525,10 +547,12 @@
 				837220E80EB56CD44AD27F2A /* ofxSlider.cpp in Sources */,
 				B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */,
 				E865A5421880BF55000F2662 /* LightSequencer.cpp in Sources */,
+				E871B57818932DF40069A262 /* BeatWave.cpp in Sources */,
 				1CD33E884D9E3358252E82A1 /* ofxToggle.cpp in Sources */,
 				E865A53F1880BF02000F2662 /* Input.cpp in Sources */,
 				960D20B191346612D5C05A6A /* ofxTCPClient.cpp in Sources */,
 				E865A5481880BF92000F2662 /* Renderer.cpp in Sources */,
+				E871B5751893253A0069A262 /* SinMoveShape.cpp in Sources */,
 				E81B02DE18876CB70077C3CC /* UDPRenderer.cpp in Sources */,
 				125506CD3E5F428AAFE5CC65 /* ofxTCPManager.cpp in Sources */,
 				E81B02D31886FD3E0077C3CC /* Screen2DRenderer.cpp in Sources */,
