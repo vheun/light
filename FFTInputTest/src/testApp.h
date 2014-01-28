@@ -1,6 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxFft.h"
+
+#include <float.h>
+#include <math.h>
 
 class testApp : public ofBaseApp{
 public:
@@ -35,11 +39,15 @@ public:
     void drawStreamInfo();
 
     // Util methods
+    void normalizeData(vector<float>& data);
+    void normalizeFFTData(float * fftData);
     float calcRootMeanSquared(float * input, int bufferSize, int nChannels);
+    //float calcFFTCentroid(float * fftData, int numBands);
     
     // SoundStream members
     vector <float> left;
     vector <float> right;
+    vector <float> mix;
     vector <float> volHistory;
     
     int bufferCounter;
@@ -51,6 +59,17 @@ public:
     ofSoundStream soundStream;
     
     //FFT Members
+    bool useDataNormalization;
+    bool useFFTNormalization;
+    
+    float * currentFFT;
     float * fftSmoothed;
-    int nBandsToGet;
+    float * dbFFT;
+    
+    int numBands;
+    
+    float fftCentroid;
+    
+    ofxFft* fft;
+
 };

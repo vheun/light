@@ -1,6 +1,12 @@
 #include "testApp.h"
 
+#define BUFFER_SIZE (256)
+
 #define FFT_SMOOTHED_FALLOFF (0.96f)
+#define USE_DATA_NORMALIZATION (false)
+#define USE_FFT_NORMALIZATION (false)
+#define USE_SMOOTHED_FFT (true)
+#define USE_DB_SPECTRUM_FFT (false)
 
 //--------------------------------------------------------------
 void testApp::setup(){
@@ -26,10 +32,11 @@ void testApp::initSoundStream() {
 	//if you want to set a different device id
 	//soundStream.setDeviceID(0); //bear in mind the device id corresponds to all audio devices, including  input-only and output-only devices.
 	
-	int bufferSize = 256;
+	int bufferSize = BUFFER_SIZE;
 	
 	left.assign(bufferSize, 0.0);
 	right.assign(bufferSize, 0.0);
+	mix.assign(bufferSize, 0.0);
 	volHistory.assign(400, 0.0);
 	
 	bufferCounter	= 0;
@@ -42,14 +49,21 @@ void testApp::initSoundStream() {
 
 
 void testApp::initFFT() {
+    
+    fft = ofxFft::create(BUFFER_SIZE, OF_FFT_WINDOW_HAMMING);
+    numBands = fft->getBinSize();
+    
     // the fft needs to be smoothed out, so we create an array of floats
-	// for that purpose:
-	fftSmoothed = new float[8192];
-	for (int i = 0; i < 8192; i++){
-		fftSmoothed[i] = 0;
-	}
-	
-	nBandsToGet = 128;
+    // for that purpose:
+    fftSmoothed = new float[numBands];
+    dbFFT = new float[numBands];
+    
+    for (int i = 0; i < numBands; i++){
+        fftSmoothed[i] = 0;
+    }
+    
+    useDataNormalization = USE_DATA_NORMALIZATION;
+    useFFTNormalization = USE_FFT_NORMALIZATION;
 }
 
 //--------------------------------------------------------------
@@ -70,19 +84,68 @@ void testApp::update(){
 }
 
 void testApp::updateFFT() {
-	// (5) grab the fft, and put in into a "smoothed" array,
-	//		by taking maximums, as peaks and then smoothing downward
-	float * val = ofSoundGetSpectrum(nBandsToGet);		// request 128 values for fft
-	for (int i = 0;i < nBandsToGet; i++){
+    // Calculate the fft
+    fft->setSignal(&mix[0]);
+	currentFFT = fft->getAmplitude();
+    
+	// Put the FFT into a "smoothed" array, by taking maximums, as peaks and then smoothing downward
+    float minVal = FLT_MAX;
+    float maxVal = FLT_MIN;
+    float maxDbSpectrum = 0;
+    
+    normalizeFFTData(currentFFT);
+
+    
+	for (int i = 0;i < numBands; ++i){
 		
 		// let the smoothed calue sink to zero:
 		fftSmoothed[i] *= FFT_SMOOTHED_FALLOFF;
 		
 		// take the max, either the smoothed or the incoming:
-		if (fftSmoothed[i] < val[i]) fftSmoothed[i] = val[i];
+		//if (fftSmoothed[i] < currentFFT[i]) fftSmoothed[i] = currentFFT[i];
+        
+        float db = 20.0 *log10(1.0 + currentFFT[i]);
+        if (fftSmoothed[i] < db) fftSmoothed[i] = db;
+
+        
+        //if (fftSmoothed[i] < minVal) { minVal = fftSmoothed[i]; }
+        //if (fftSmoothed[i] > maxVal) { maxVal = fftSmoothed[i]; }
+        
+        // Convert to power spectrum
+        if (USE_SMOOTHED_FFT) {
+            //dbFFT[i] = 20*log10(fftSmoothed[i] + 1e-30);
+            //dbFFT[i] = 20*log10(1.0 *(fftSmoothed[i] + 1));
+            //dbFFT[i] = powf(fftSmoothed[i], 0.5);
+            //dbFFT[i] = 20.0 * powf(fftSmoothed[i], 2.0);
+            //dbFFT[i] = 10.0 *log10( powf(fftSmoothed[i], 2.0) + 1);
+            dbFFT[i] = 10.0 *log10(1.0 + fftSmoothed[i]);
+        } else {
+            dbFFT[i] = 20*log10(currentFFT[i] + 1e-30);
+        }
+        
+        if (dbFFT[i] > maxDbSpectrum) { maxDbSpectrum = dbFFT[i]; }
 	}
     
+    
+    //printf("minVal %f maxVal %f \n", minVal, maxVal);
+    
+    /*
+    float spec_range = 50.0f;
+    for (int i = 0;i < numBands; ++i){
+        dbFFT[i] -= maxDbSpectrum;
+        dbFFT[i] = (ofClamp(dbFFT[i], -spec_range, 0) + spec_range ) / spec_range;
+    }
+     */
+    
+    
+    
+    // Calculate the FFT centroid
+    float centroidStep = 1.0f/numBands;
+    for (int i = 0; i < numBands; ++i) {
+        
+    }
 }
+
 
 //--------------------------------------------------------------
 void testApp::draw(){
@@ -90,9 +153,8 @@ void testApp::draw(){
 	ofSetColor(225);
 	//ofDrawBitmapString("AUDIO INPUT EXAMPLE", 32, 32);
 	//ofDrawBitmapString("press 's' to unpause the audio\n'e' to pause the audio", 31, 92);
-	
 	ofNoFill();
-	
+
     drawChannels(32, 680);
     drawAverageVolume(0,0);
     drawFFT(0,0);
@@ -107,6 +169,7 @@ void testApp::drawChannels(int x, int y) {
     const int CHANNEL_WIDTH = 256 * 2;
     const int CHANNEL_HEIGHT = 100;
     const float CHANNEL_GAIN = 180.0f;
+    const int SAMPLE_DRAW_LENGHT = 2;
     
 	// draw the left channel:
 	ofPushStyle();
@@ -124,7 +187,7 @@ void testApp::drawChannels(int x, int y) {
     
     ofBeginShape();
     for (unsigned int i = 0; i < left.size(); i++){
-        ofVertex(i*2, CHANNEL_HEIGHT/2 -left[i] * CHANNEL_GAIN);
+        ofVertex(i*SAMPLE_DRAW_LENGHT, CHANNEL_HEIGHT/2 -left[i] * CHANNEL_GAIN);
     }
     ofEndShape(false);
     
@@ -134,7 +197,7 @@ void testApp::drawChannels(int x, int y) {
 	// draw the right channel:
 	ofPushStyle();
     ofPushMatrix();
-    ofTranslate(x + left.size() * 2 + MIDDLE_SPACE, y, 0);
+    ofTranslate(x + left.size()*SAMPLE_DRAW_LENGHT + MIDDLE_SPACE, y, 0);
     
     ofSetColor(225);
     ofDrawBitmapString("Right Channel", 4, 18);
@@ -147,7 +210,7 @@ void testApp::drawChannels(int x, int y) {
     
     ofBeginShape();
     for (unsigned int i = 0; i < right.size(); i++){
-        ofVertex(i*2, CHANNEL_HEIGHT/2 -right[i] * CHANNEL_GAIN);
+        ofVertex(i*SAMPLE_DRAW_LENGHT, CHANNEL_HEIGHT/2 -right[i] * CHANNEL_GAIN);
     }
     ofEndShape(false);
     
@@ -185,18 +248,36 @@ void testApp::drawAverageVolume(int x, int y) {
 }
 
 void testApp::drawFFT(int x, int y) {
+    const int WIDTH = 800;
+    const int HEIGHT = 400;
+    const float SCALE = 200.0f;
+    
     ofPushStyle();
     ofPushMatrix();
     ofTranslate(x, y, 0);
     
+    ofSetLineWidth(1);
+    ofRect(0, 0, WIDTH, HEIGHT);
+    
 	// draw the fft resutls:
 	ofSetColor(255,255,255);
+    
+    float * fftData;
+    if (USE_SMOOTHED_FFT) {
+        fftData = fftSmoothed;
+    } else {
+        fftData = currentFFT;
+    }
+    
+    if (USE_DB_SPECTRUM_FFT) {
+        fftData = dbFFT;
+    }
 	
-	float width = (float)(5*128) / nBandsToGet;
-	for (int i = 0;i < nBandsToGet; i++){
+	float width = float(WIDTH) / numBands;
+	for (int i = 0;i < numBands; i++){
 		// (we use negative height here, because we want to flip them
 		// because the top corner is 0,0)
-		ofRect(100+i*width,ofGetHeight()-100,width,-(fftSmoothed[i] * 200));
+		ofRect(i*width, HEIGHT,width,-(fftData[i] * SCALE));
 	}
     
     ofPopMatrix();
@@ -213,11 +294,55 @@ void testApp::drawStreamInfo() {
 
 //--------------------------------------------------------------
 void testApp::audioIn(float * input, int bufferSize, int nChannels){
-	
+    // Set the left, right, and mix for the audio
+    for (int i = 0; i < bufferSize; i++){
+		left[i]	= input[i*2]*0.5;
+		right[i] = input[i*2+1]*0.5;
+        mix[i] = left[i] + right[i] / 2.0f;
+    }
+
+    normalizeData(left);
+    normalizeData(right);
+    normalizeData(mix);
+    
 	smoothedVol *= 0.93;
 	smoothedVol += 0.07 * calcRootMeanSquared(input, bufferSize, nChannels);
 	
 	bufferCounter++;
+}
+
+void testApp::normalizeData(vector<float>& data) {
+    if(useDataNormalization) {
+        float maxValue = 0;
+        for(int i = 0; i < data.size(); i++) {
+            if(abs(data[i]) > maxValue) {
+                maxValue = abs(data[i]);
+            }
+        }
+        if (maxValue == 0) {
+            return;
+        }
+        for(int i = 0; i < data.size(); i++) {
+            data[i] /= maxValue;
+        }
+    }
+}
+
+void testApp::normalizeFFTData(float * fftData) {
+    if(useFFTNormalization) {
+        float maxValue = 0;
+        for(int i = 0; i < numBands; i++) {
+            if(abs(fftData[i]) > maxValue) {
+                maxValue = abs(fftData[i]);
+            }
+        }
+        if (maxValue == 0) {
+            return;
+        }
+        for(int i = 0; i < numBands; i++) {
+            fftData[i] /= maxValue;
+        }
+    }
 }
 
 float testApp::calcRootMeanSquared(float * input, int bufferSize, int nChannels) {
@@ -228,9 +353,8 @@ float testApp::calcRootMeanSquared(float * input, int bufferSize, int nChannels)
     
 	//lets go through each sample and calculate the root mean square which is a rough way to calculate volume
 	for (int i = 0; i < bufferSize; i++){
-		left[i]		= input[i*2]*0.5;
-		right[i]	= input[i*2+1]*0.5;
-        
+		//left[i]		= input[i*2]*0.5;
+		//right[i]	= input[i*2+1]*0.5;
 		curVol += left[i] * left[i];
 		curVol += right[i] * right[i];
 		numCounted+=2;
