@@ -26,7 +26,7 @@ public:
 };
 
 class KeyEventListener {
-public:    
+public:
     virtual void registerKeyEventProvider(KeyEventProvider &provider) {
         keyEventProvider = &provider;
     }
